@@ -24,3 +24,5 @@ Imports:
     stats,
     utils
 VignetteBuilder: knitr
+URL: https://github.com/davazriel/basketBH
+BugReports: https://github.com/davazriel/basketBH/issues
