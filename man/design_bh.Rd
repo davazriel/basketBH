@@ -32,6 +32,10 @@ design_bh(
 \item{min_n}{Minimum total sample size.}
 
 \item{max_n}{Maximum total sample size.}
+
+\item{progress}{whether progress should be shown}
+
+\item{progress_step}{number of steps for the shown progress}
 }
 \value{
 A list containing the optimal and minimax designs.
