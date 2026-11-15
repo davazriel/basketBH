@@ -1,6 +1,4 @@
-#' Search for BH Basket Designs
-#'
-#' Searches for two-stage basket trial designs that satisfy
+#' Searches for two-stage basket trial designs satisfying
 #' a target power requirement under the BH multiple-testing
 #' procedure.
 #'
@@ -11,10 +9,21 @@
 #' @param target_power Desired power.
 #' @param min_n Minimum total sample size.
 #' @param max_n Maximum total sample size.
-#' @param progress Logical; print progress updates.
-#' @param progress_step Percentage increment for reporting.
 #'
 #' @return A list containing the optimal and minimax designs.
+#'
+#' @examples
+#' \dontrun{
+#' design_bh(
+#'   K = 10,
+#'   p0 = 0.15,
+#'   pa = 0.35,
+#'   target_alpha = 0.20,
+#'   target_power = 0.70,
+#'   min_n = 10,
+#'   max_n = 40
+#' )
+#' }
 #'
 #' @export
 # Main function

@@ -29,3 +29,17 @@ The probability of false rejections.
 \description{
 Computes the probability of false rejections for the BH procedure.
 }
+\examples{
+\dontrun{
+bh_tpr(
+  n1 = 11,
+  r1 = 2,
+  n2 = 19,
+  p0 = 0.15,
+  pa = 0.35,
+  K = 10,
+  alpha = 0.20,
+  K1 = 1
+)
+}
+}

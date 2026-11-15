@@ -7,6 +7,17 @@
 #' @param F0 The distribution of p-values under the null..
 #'
 #' @return A list of the expected number of true and false rejections.
+#' @examples
+#' F0 <- function(x) x
+#' F1 <- function(x) pmin(1, x^0.5)
+#'
+#' exact_bh_expectations(
+#'   K1 = 1,
+#'   K0 = 9,
+#'   alpha = 0.20,
+#'   F1 = F1,
+#'   F0 = F0
+#' )
 #' @export
 exact_bh_expectations <- function(K1, K0, alpha, F1, F0) {
   K <- K1 + K0
@@ -92,7 +103,19 @@ exact_bh_expectations <- function(K1, K0, alpha, F1, F0) {
 #' @param alpha Threshold parameter for BH.
 #'
 #' @return The probability of false rejections.
-
+#' @examples
+#' \dontrun{
+#' bh_tpr(
+#'   n1 = 11,
+#'   r1 = 2,
+#'   n2 = 19,
+#'   p0 = 0.15,
+#'   pa = 0.35,
+#'   K = 10,
+#'   alpha = 0.20,
+#'   K1 = 1
+#' )
+#' }
 #' @export
 bh_tpr=function(n1,r1,n2,p0,pa,K,alpha,K1)
 {

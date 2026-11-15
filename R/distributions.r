@@ -6,6 +6,16 @@
 #' @param p Response probability.
 #'
 #' @return Returns: named vector of probabilities for X (two-stage experiment).
+#' @examples
+#' pmf <- pmf_two_stage(
+#'   n1 = 11,
+#'   r1 = 2,
+#'   n2 = 19,
+#'   p = 0.15
+#' )
+#'
+#' head(pmf)
+#' sum(pmf)
 #' @export
 pmf_two_stage <- function(n1, r1, n2, p) {
   xs <- 0:(n1 + n2)
@@ -40,6 +50,14 @@ pmf_two_stage <- function(n1, r1, n2, p) {
 #' @param p0 Response probability under the null.
 #'
 #' @return Expected total sample size.
+#' @examples
+#' expected_sample_size(
+#'   K = 10,
+#'   r1 = 2,
+#'   n1 = 11,
+#'   n2 = 19,
+#'   p0 = 0.15
+#' )
 #' @export
 expected_sample_size <- function(K, r1, n1, n2, p0) {
   # Probability of an inactive arm passing stage 1

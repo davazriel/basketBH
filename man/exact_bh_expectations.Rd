@@ -23,3 +23,15 @@ A list of the expected number of true and false rejections.
 \description{
 Computes the exact expectation of the number of true and false rejections for the BH procedure.
 }
+\examples{
+F0 <- function(x) x
+F1 <- function(x) pmin(1, x^0.5)
+
+exact_bh_expectations(
+  K1 = 1,
+  K0 = 9,
+  alpha = 0.20,
+  F1 = F1,
+  F0 = F0
+)
+}

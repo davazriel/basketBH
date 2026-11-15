@@ -2,7 +2,9 @@
 % Please edit documentation in R/design_search.R
 \name{design_bh}
 \alias{design_bh}
-\title{Search for BH Basket Designs}
+\title{Searches for two-stage basket trial designs satisfying
+a target power requirement under the BH multiple-testing
+procedure.}
 \usage{
 design_bh(
   K,
@@ -30,16 +32,26 @@ design_bh(
 \item{min_n}{Minimum total sample size.}
 
 \item{max_n}{Maximum total sample size.}
-
-\item{progress}{Logical; print progress updates.}
-
-\item{progress_step}{Percentage increment for reporting.}
 }
 \value{
 A list containing the optimal and minimax designs.
 }
 \description{
-Searches for two-stage basket trial designs that satisfy
+Searches for two-stage basket trial designs satisfying
 a target power requirement under the BH multiple-testing
 procedure.
+}
+\examples{
+\dontrun{
+design_bh(
+  K = 10,
+  p0 = 0.15,
+  pa = 0.35,
+  target_alpha = 0.20,
+  target_power = 0.70,
+  min_n = 10,
+  max_n = 40
+)
+}
+
 }

@@ -21,3 +21,14 @@ Returns: named vector of probabilities for X (two-stage experiment).
 \description{
 The PMF of a two-stage design
 }
+\examples{
+pmf <- pmf_two_stage(
+  n1 = 11,
+  r1 = 2,
+  n2 = 19,
+  p = 0.15
+)
+
+head(pmf)
+sum(pmf)
+}

@@ -23,3 +23,12 @@ Expected total sample size.
 \description{
 Computes the expected total sample size under the null hypothesis.
 }
+\examples{
+expected_sample_size(
+  K = 10,
+  r1 = 2,
+  n1 = 11,
+  n2 = 19,
+  p0 = 0.15
+)
+}
