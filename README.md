@@ -34,7 +34,7 @@ The methodology is described in the accompanying manuscript:
 ``` r
 install.packages("remotes")
 
-remotes::install_github("davidazriel/basketBH")
+remotes::install_github("davazriel/basketBH")
 ```
 
 Replace `"davazriel/basketBH"` with the actual repository name if it
