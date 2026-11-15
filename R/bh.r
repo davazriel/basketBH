@@ -1,4 +1,13 @@
-
+#' Computes the exact expectation of the number of true and false rejections for the BH procedure.
+#'
+#' @param K0 Number of null baskets.
+#' @param K1 Number of alternative baskets.
+#' @param alpha Threshold parameter for BH.
+#' @param F1 The distribution of p-values under the alternative.
+#' @param F0 The distribution of p-values under the null..
+#'
+#' @return A list of the expected number of true and false rejections.
+#' @export
 exact_bh_expectations <- function(K1, K0, alpha, F1, F0) {
   K <- K1 + K0
 
@@ -71,9 +80,20 @@ exact_bh_expectations <- function(K1, K0, alpha, F1, F0) {
   ))
 }
 
-# Computes TPR for K1=K1
+#' Computes the probability of false rejections for the BH procedure.
+#'
+#' @param n1 Stage 1 sample size.
+#' @param r1 Stage 1 futility threshold.
+#' @param n2 Stage 2 sample size.
+#' @param p0 Response probability under the null.
+#' @param pa Response probability under the alternative.
+#' @param K Total number of null baskets.
+#' @param K1 Number of alternative baskets.
+#' @param alpha Threshold parameter for BH.
+#'
+#' @return The probability of false rejections.
 
-
+#' @export
 bh_tpr=function(n1,r1,n2,p0,pa,K,alpha,K1)
 {
 

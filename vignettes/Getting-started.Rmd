@@ -14,6 +14,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r setup}
+library(basketBH)
+```
+
 # Introduction
 
 The `basketBH` package provides tools for designing and evaluating basket clinical trials using Simon-type two-stage designs combined with the Benjamini-Hochberg (BH) multiple-testing procedure.

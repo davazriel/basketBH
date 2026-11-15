@@ -8,6 +8,14 @@
 \description{
 Design and evaluation of basket clinical trials using Simon-type two-stage sampling and the Benjamini-Hochberg multiple testing procedure.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/davazriel/basketBH}
+  \item Report bugs at \url{https://github.com/davazriel/basketBH/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: David Azriel \email{davidazr@technion.ac.il}
 
