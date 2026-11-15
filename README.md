@@ -37,7 +37,7 @@ install.packages("remotes")
 remotes::install_github("davidazriel/basketBH")
 ```
 
-Replace `"davidazriel/basketBH"` with the actual repository name if it
+Replace `"davazriel/basketBH"` with the actual repository name if it
 differs.
 
 ### Install a local development version
