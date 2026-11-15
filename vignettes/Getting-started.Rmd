@@ -1,0 +1,142 @@
+---
+title: "Getting Started with basketBH"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with basketBH}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+The `basketBH` package provides tools for designing and evaluating basket clinical trials using Simon-type two-stage designs combined with the Benjamini-Hochberg (BH) multiple-testing procedure.
+
+The package implements exact calculations of operating characteristics, including:
+
+- Basket-level true positive rates (TPR)
+- Expected numbers of true and false rejections
+- Expected sample size under the null hypothesis
+- Optimal and minimax basket-trial designs
+
+# Design Search
+
+The main function in the package is `design_bh()`, which searches for designs satisfying a desired power requirement while controlling the false discovery rate.
+
+```{r eval = FALSE}
+library(basketBH)
+
+out <- design_bh(
+  K = 10,
+  p0 = 0.15,
+  pa = 0.35,
+  target_alpha = 0.20,
+  target_power = 0.70,
+  min_n = 10,
+  max_n = 40
+)
+
+out
+```
+
+The function returns:
+
+- An optimal design, minimizing the expected sample size under the null.
+- A minimax design, minimizing the maximum sample size.
+
+# Computing Basket-Level Power
+
+For a fixed design, basket-level power can be computed using `bh_tpr()`.
+
+The following example calculates the true positive rate when exactly one basket is active.
+
+```{r eval = FALSE}
+bh_tpr(
+  n1 = 11,
+  r1 = 2,
+  n2 = 19,
+  p0 = 0.15,
+  pa = 0.35,
+  K = 10,
+  alpha = 0.20,
+  K1 = 1
+)
+```
+
+# Expected Sample Size
+
+The expected sample size under the global null hypothesis can be computed using `expected_sample_size()`.
+
+```{r}
+expected_sample_size(
+  K = 10,
+  r1 = 2,
+  n1 = 11,
+  n2 = 19,
+  p0 = 0.15
+) / 10
+```
+
+The result gives the expected sample size per basket under the null.
+
+# Two-Stage Distribution
+
+The package can also compute the exact probability mass function of the two-stage design.
+
+```{r}
+pmf <- pmf_two_stage(
+  n1 = 11,
+  r1 = 2,
+  n2 = 19,
+  p = 0.15
+)
+
+head(pmf)
+```
+
+The probabilities sum to one:
+
+```{r}
+sum(pmf)
+```
+
+# Exact BH Calculations
+
+The function `exact_bh_expectations()` implements the dynamic-programming algorithm for computing the expected numbers of true and false discoveries under the BH procedure.
+
+The function requires cumulative distribution functions under both the null and alternative hypotheses and is primarily intended for methodological investigations.
+
+```{r eval = FALSE}
+exact_bh_expectations(
+  K1 = 1,
+  K0 = 9,
+  alpha = 0.20,
+  F1 = F1,
+  F0 = F0
+)
+```
+
+# Workflow
+
+A typical analysis consists of:
+
+1. Specify design parameters (`p0`, `pa`, `K`, and target operating characteristics).
+2. Use `design_bh()` to identify candidate designs.
+3. Evaluate basket-level power with `TPR_K1()`.
+4. Compute expected sample size using `Calculate_EN0()`.
+5. Use lower-level functions for methodological investigations.
+
+# Future Development
+
+Future versions of the package may include:
+
+- Additional operating characteristics
+- Simulation tools
+- Graphical summaries
+- Reproduction of examples and tables from the accompanying manuscript
