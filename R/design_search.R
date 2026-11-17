@@ -9,8 +9,8 @@
 #' @param target_power Desired power.
 #' @param min_n Minimum total sample size.
 #' @param max_n Maximum total sample size.
-#' @param progress whether progress should be shown
-#' @param progress_step number of steps for the shown progress
+#' @param Logical; print progress updates.
+#' @param progress_step Percentage increment for reporting
 #'
 #' @return A list containing the optimal and minimax designs.
 #'

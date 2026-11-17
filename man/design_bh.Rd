@@ -33,9 +33,9 @@ design_bh(
 
 \item{max_n}{Maximum total sample size.}
 
-\item{progress}{whether progress should be shown}
+\item{progress_step}{Percentage increment for reporting}
 
-\item{progress_step}{number of steps for the shown progress}
+\item{Logical;}{print progress updates.}
 }
 \value{
 A list containing the optimal and minimax designs.
