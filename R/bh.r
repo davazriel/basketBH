@@ -104,7 +104,6 @@ exact_bh_expectations <- function(K1, K0, alpha, F1, F0) {
 #'
 #' @return The probability of false rejections.
 #' @examples
-#' \dontrun{
 #' bh_tpr(
 #'   n1 = 11,
 #'   r1 = 2,
@@ -115,7 +114,6 @@ exact_bh_expectations <- function(K1, K0, alpha, F1, F0) {
 #'   alpha = 0.20,
 #'   K1 = 1
 #' )
-#' }
 #' @export
 bh_tpr=function(n1,r1,n2,p0,pa,K,alpha,K1)
 {
